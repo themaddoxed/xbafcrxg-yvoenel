@@ -5,6 +5,7 @@ site_url: https://themaddoxed.github.io/xbafcrxg-yvoenel/
 docs_dir: docs
 site_dir: build
 
+# === Theme ===
 theme:
   name: material
   language: ru
@@ -41,6 +42,7 @@ theme:
     - navigation.expand
     - navigation.top
     - navigation.indexes
+    - header.autohide
     - toc.follow
     - content.code.copy
     - search.suggest
@@ -52,6 +54,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+# === Plugins ===
 # Search index IS generated — but our build pipeline encrypts it (see
 # encrypt_search_index.js) and deletes the plaintext before publishing.
 # A theme override (overrides/main.html) intercepts window.fetch to route
@@ -63,6 +66,7 @@ plugins:
         - en
       separator: '[\s\u2014\-\.]+'
 
+# === Markdown Extensions ===
 markdown_extensions:
   - admonition
   - attr_list
@@ -73,6 +77,9 @@ markdown_extensions:
   - toc:
       permalink: "#"
       toc_depth: 3
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -89,9 +96,15 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
 
+# === Stylesheets ===
+extra_css:
+  - stylesheets/extra.css
+
+# === Extra ===
 extra:
   generator: false
 
+# === Navigation ===
 nav:
   - Главная: index.md
   - Конспект:

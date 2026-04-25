@@ -10,3 +10,8 @@ SITE_PASSWORD.txt
 __pycache__/
 *.pyc
 .DS_Store
+node_modules/
+site/
+*.bak
+*.orig
+*.STALE_*

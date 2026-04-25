@@ -23,7 +23,7 @@
 ## Структура
 
 - `docs/` — 19 конспектов + 19 полных версий + landing (`index.md`). **Не коммитится.**
-- `mkdocs.yml` — Material theme (dark slate + тумблер, русский UI, `plugins: []` — поиск отключён намеренно).
+- `mkdocs.yml` — Material theme (dark slate + тумблер, русский UI, search enabled + зашифрован через encrypt_search_index.js).
 - `build_enc/` — готовая зашифрованная статика (~11 MB, 40 HTML). **Только в `gh-pages`.**
 - `deploy.sh` — один скрипт: gh auth → `main` со scaffolding → `ghp-import` на `gh-pages` → enable Pages → дождаться 200.
 - `.gitignore` — жёстко исключает всё с plaintext.
@@ -54,7 +54,7 @@ chmod +x deploy.sh
 ## Безопасность
 
 - AES-256-GCM, PBKDF2 600 000 раундов (staticrypt 3.x по умолчанию), соль в `.staticrypt.json`.
-- `plugins: []` в `mkdocs.yml` — `search_index.json` не генерируется вообще. Навигация через боковое меню + Ctrl+F.
+- `plugins: [search]` + `encrypt_search_index.js` — `search_index.json` генерируется, шифруется, plaintext удаляется до публикации. Навигация через табы/боковое меню + поиск через `/`.
 - `SITE_PASSWORD.txt` в `.gitignore`, не коммитится.
 - Репо публичный (так задумано — контент зашифрован, Pages бесплатно поднимают сайт).
 - `deploy.sh` имеет positive allow-list (на main разрешены только 4 scaffolding-файла) и negative leak-guard (abort если docs//build/*/.docx в stage).
