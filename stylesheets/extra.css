@@ -1,3 +1,5 @@
+/* Mobile-first overrides for Material theme: content spacing, nav tap targets,
+   responsive images, and horizontal table scroll on small screens. */
 @media (max-width: 768px) {
   .md-content {
     margin: 0 0.4rem;
