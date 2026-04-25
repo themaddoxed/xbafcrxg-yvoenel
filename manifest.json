@@ -1,0 +1,10 @@
+{
+  "name": "Архив курсов GoPractice",
+  "short_name": "Курсы",
+  "description": "Приватный архив курсов по продакт-менеджменту",
+  "start_url": "/xbafcrxg-yvoenel/",
+  "display": "standalone",
+  "theme_color": "#5e81ac",
+  "background_color": "#2e3440",
+  "icons": []
+}
