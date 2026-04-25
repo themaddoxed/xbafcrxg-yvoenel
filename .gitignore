@@ -1,0 +1,12 @@
+# Anything with plaintext course content — NEVER push to github.
+docs/
+build/
+build_enc/
+.venv/
+SITE_PASSWORD.txt
+*.docx
+
+# Misc
+__pycache__/
+*.pyc
+.DS_Store

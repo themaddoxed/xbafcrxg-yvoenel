@@ -1,0 +1,303 @@
+site_name: Приватный архив
+site_description: Личные конспекты курса по продакт-менеджменту (модули 1 → 9.1)
+site_author: Dan
+site_url: https://themaddoxed.github.io/xbafcrxg-yvoenel/
+docs_dir: docs
+site_dir: build
+
+theme:
+  name: material
+  language: ru
+  custom_dir: overrides
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Светлая тема
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Тёмная тема
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Светлая тема
+  features:
+    # navigation.instant is intentionally OFF — it does in-place DOM swaps that
+    # collide with staticrypt's document.write on navigation.
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+
+# Search index IS generated — but our build pipeline encrypts it (see
+# encrypt_search_index.js) and deletes the plaintext before publishing.
+# A theme override (overrides/main.html) intercepts window.fetch to route
+# search_index.json requests to search_index.enc and decrypt on the fly.
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
+      separator: '[\s\u2014\-\.]+'
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+
+extra:
+  generator: false
+
+nav:
+  - Главная: index.md
+  - Конспект:
+      - Введение: konspekt/00__vvedenie.md
+      - Модуль 1 — Собеседование:
+          - 1. Собеседование: konspekt/01__sobesedovanie.md
+          - "§ Chrome на рынке браузеров": konspekt/01a__chrome.md
+      - Модуль 2 — Soft Launch:
+          - 2. Soft Launch и базовые метрики: konspekt/02__soft_launch.md
+      - Модуль 3 — Рынок:
+          - 3. Анализ рынка и конкурентов: konspekt/03__rynok.md
+          - "§ Запуск продукта": konspekt/03a__zapusk.md
+          - "§ Старый знакомый": konspekt/03b__stary_znakomy.md
+      - Модуль 4 — Retention:
+          - 4.1. Понимание и расчёт Retention: konspekt/04.1__retention_basics.md
+          - 4.2. Связь Retention, новых и активных: konspekt/04.2__retention_links.md
+          - 4.3. Долгосрочный Retention: konspekt/04.3__retention_long.md
+          - 4.4. Прогноз аудитории Instachat: konspekt/04.4__prognoz.md
+          - "§ Ответ Майка": konspekt/04a__mike.md
+      - Модуль 5 — Метрики:
+          - 5. Метрики продукта и метрики роста: konspekt/05__metrics.md
+      - Модуль 6 — Воронки и сравнения:
+          - 6.1. Понимание воронок: konspekt/06.1__funnels.md
+          - 6.2. Сравнение версий приложения: konspekt/06.2__version_compare.md
+          - 6.3. Сравнивайте сравнимое: konspekt/06.3__compare.md
+      - Модуль 7 — Статистика:
+          - 7. Статистическая значимость: konspekt/07__stat_sig.md
+      - Модуль 8 — Приоритизация:
+          - 8. Приоритизация и оценка потенциала: konspekt/08__prioritization.md
+      - Модуль 9 — Ценность:
+          - 9.1. Гипотеза ценности: konspekt/09.1__value_hypothesis.md
+  - Полный курс:
+      - Введение: full/00__vvedenie.md
+      - Модуль 1 — Собеседование:
+          - 1. Собеседование: full/01__sobesedovanie.md
+          - "§ Chrome на рынке браузеров": full/01a__chrome.md
+      - Модуль 2 — Soft Launch:
+          - 2. Soft Launch и базовые метрики: full/02__soft_launch.md
+      - Модуль 3 — Рынок:
+          - 3. Анализ рынка и конкурентов: full/03__rynok.md
+          - "§ Запуск продукта": full/03a__zapusk.md
+          - "§ Старый знакомый": full/03b__stary_znakomy.md
+      - Модуль 4 — Retention:
+          - 4.1. Понимание и расчёт Retention: full/04.1__retention_basics.md
+          - 4.2. Связь Retention, новых и активных: full/04.2__retention_links.md
+          - 4.3. Долгосрочный Retention: full/04.3__retention_long.md
+          - 4.4. Прогноз аудитории Instachat: full/04.4__prognoz.md
+          - "§ Ответ Майка": full/04a__mike.md
+      - Модуль 5 — Метрики:
+          - 5. Метрики продукта и метрики роста: full/05__metrics.md
+      - Модуль 6 — Воронки и сравнения:
+          - 6.1. Понимание воронок: full/06.1__funnels.md
+          - 6.2. Сравнение версий приложения: full/06.2__version_compare.md
+          - 6.3. Сравнивайте сравнимое: full/06.3__compare.md
+      - Модуль 7 — Статистика:
+          - 7. Статистическая значимость: full/07__stat_sig.md
+      - Модуль 8 — Приоритизация:
+          - 8. Приоритизация и оценка потенциала: full/08__prioritization.md
+      - Модуль 9 — Ценность:
+          - 9.1. Гипотеза ценности: full/09.1__value_hypothesis.md
+  - Дополнительные материалы:
+      - Обзор: extras/index.md
+      - Модуль 1. Исследование рынка: extras/module_1.md
+      - Модуль 2. Soft launch: extras/module_2.md
+      - Модуль 3. Рынок: extras/module_3.md
+      - Модуль 7. Статистическая значимость: extras/module_7.md
+      - Модуль 8. Growth: extras/module_8.md
+      - "Модуль 9.1. Value hypothesis / JTBD": extras/module_9.1.md
+      - "Лекция Алекса Шульца (4.3)": extras/schultz_lecture.md
+  - Курс WANNABE:
+    - Обзор: wannabe/index.md
+    - Модуль 1. Компетенции:
+      - Обзор: wannabe/M01_Kompetentsii/index.md
+      - Модуль 1. Урок 2. Определяем, какие компетенции пригодятся вам в работе: wannabe/M01_Kompetentsii/L02_kompetentsii.md
+      - Модуль 1. Урок 3. Как разработать свои конкурентные преимущества: wannabe/M01_Kompetentsii/L03_preimushchestva.md
+      - Модуль 1. Урок 4. Персональный план развития (PDP): wannabe/M01_Kompetentsii/L04_pdp.md
+      - Модуль 1. Урок 5. Инструкция по заполнению PDP: wannabe/M01_Kompetentsii/L05_instruktsiya_pdp.md
+      - Модуль 1. Урок 6. Как проводить регулярную встречу 1-1: wannabe/M01_Kompetentsii/L06_vstrecha_1_1.md
+      - Модуль 1. Урок 7. Регулярная встреча 1-1 с руководителем: wannabe/M01_Kompetentsii/L07_vstrecha_rukovoditelem.md
+    - Модуль 2. Стратегия продукта:
+      - Обзор: wannabe/M02_Strategiya_Produkta/index.md
+      - Модуль 2. Урок 1. Разбираемся в стратегии: wannabe/M02_Strategiya_Produkta/L01_razbiraemsya-v-strategii.md
+      - Модуль 2. Урок 2. Учимся разрабатывать стратегию: wannabe/M02_Strategiya_Produkta/L02_uchimsya-razrabatyvat-strategiyu.md
+      - Модуль 2. Урок 3. Переходим от теории к практике: wannabe/M02_Strategiya_Produkta/L03_perehodim-ot-teorii-k-praktike.md
+      - Модуль 2. Урок 4. Типы стратегии: wannabe/M02_Strategiya_Produkta/L04_tipy-strategii.md
+      - Модуль 2. Урок 5. Ценовые модели и монетизация: wannabe/M02_Strategiya_Produkta/L05_tsenovye-modeli-i-monetizatsiya.md
+      - Модуль 2. Урок 6. Принципы плохой стратегии: wannabe/M02_Strategiya_Produkta/L06_printsipy-plohoy-strategii.md
+      - Модуль 2. Урок 7. Формулируем стратегию: wannabe/M02_Strategiya_Produkta/L07_formuliruem-strategiyu.md
+      - Модуль 2. Урок 8. Как работать с разными стратегиями: wannabe/M02_Strategiya_Produkta/L08_kak-rabotat-s-raznymi-strategiyami.md
+      - Модуль 2. Урок 9. Типы стратегий по Портеру: wannabe/M02_Strategiya_Produkta/L09_tipy-strategiy-po-porteru.md
+      - Модуль 2. Урок 10. Модели монетизации и ценообразования: wannabe/M02_Strategiya_Produkta/L10_modeli-monetizatsii-tsenoobrazovaniya.md
+      - Модуль 2. Урок 11. Гайд по анализу конкурентов: wannabe/M02_Strategiya_Produkta/L11_gayd-po-analizu-konkurentov.md
+      - Модуль 2. Урок 12. Как описывать продукт и компанию: wannabe/M02_Strategiya_Produkta/L12_kak-opisyvat-produkt-i-kompaniyu.md
+      - Модуль 2. Урок 13. Как писать Job Stories: wannabe/M02_Strategiya_Produkta/L13_kak-pisat-job-stories.md
+      - Модуль 2. Урок 14. Сегментация и принципы применения: wannabe/M02_Strategiya_Produkta/L14_segmentatsiya-i-printsipy-primeneniya.md
+    - Модуль 3. Бизнес-метрики и юнит-экономика:
+      - Обзор: wannabe/M03_Biznes_Metriki/index.md
+      - "Модуль 3. Урок 1. Спойлер: иерархия метрик": wannabe/M03_Biznes_Metriki/L01_spoiler-ierarkhiya-metrik.md
+      - Модуль 3. Урок 2. Изучаем бизнес-показатели: wannabe/M03_Biznes_Metriki/L02_izuchaem-biznes-pokazateli.md
+      - Модуль 3. Урок 3. Основные бизнес-показатели: wannabe/M03_Biznes_Metriki/L03_osnovnye-biznes-pokazateli.md
+      - Модуль 3. Урок 4. Юнит-экономика: wannabe/M03_Biznes_Metriki/L04_yunit-ekonomika.md
+      - "Модуль 3. Урок 5. Основные бизнес-показатели в P&L": wannabe/M03_Biznes_Metriki/L05_osnovnye-pokazateli-v-pl.md
+      - Модуль 3. Урок 6. Бизнес-показатели для юнит-экономики: wannabe/M03_Biznes_Metriki/L06_biznes-pokazateli-dlya-yunit-ekonomiki.md
+      - Модуль 3. Урок 7. Чеклист подсчёта юнит-экономики: wannabe/M03_Biznes_Metriki/L07_chekllist-podschyota-yunit-ekonomiki.md
+      - Модуль 3. Урок 8. Финансовые отчёты: wannabe/M03_Biznes_Metriki/L08_finansovye-otchyoty.md
+    - Модуль 4. Метрики продукта:
+      - Обзор: wannabe/M04_Metriki_Produkta/index.md
+      - Модуль 4. Урок 1. Разбираемся в основах: wannabe/M04_Metriki_Produkta/L01_razbiraemsya-v-osnovakh.md
+      - Модуль 4. Урок 2. Ключевые метрики продукта: wannabe/M04_Metriki_Produkta/L02_klyuchevye-metriki-produkta.md
+      - Модуль 4. Урок 3. Строим иерархию метрик: wannabe/M04_Metriki_Produkta/L03_stroim-ierarkhiyu-metrik.md
+      - Модуль 4. Урок 4. Метрики работают на вас: wannabe/M04_Metriki_Produkta/L04_metriki-rabotayut-na-vas.md
+      - Модуль 4. Урок 5. Обзор аналитических инструментов: wannabe/M04_Metriki_Produkta/L05_obzor-analiticheskikh-instrumentov.md
+      - Модуль 4. Урок 6. Иерархия метрик (подсказка): wannabe/M04_Metriki_Produkta/L06_ierarkhiya-metrik-podskazka.md
+      - Модуль 4. Урок 7. Как создать иерархию метрик: wannabe/M04_Metriki_Produkta/L07_kak-sozdat-ierarkhiyu-metrik.md
+      - Модуль 4. Урок 8. Метрики для работы: wannabe/M04_Metriki_Produkta/L08_metriki-dlya-raboty.md
+    - Модуль 5. Исследования в продукте:
+      - Обзор: wannabe/M05_Research/index.md
+      - Модуль 5. Урок 1. Разбираемся в исследованиях: wannabe/M05_Research/L01_razbiraemsya_v_issledovaniyah.md
+      - Модуль 5. Урок 2. Постановка цели исследования: wannabe/M05_Research/L02_postanovka_tseli_issledovaniya.md
+      - Модуль 5. Урок 3. Классификации исследований: wannabe/M05_Research/L03_klassifikatsii_issledovaniy.md
+      - Модуль 5. Урок 4. Качественные и количественные методы: wannabe/M05_Research/L04_kachestvennye_i_kolichestvennye_metody.md
+      - Модуль 5. Урок 5. Качественные исследования: wannabe/M05_Research/L05_kachestvennye_issledovaniya.md
+      - Модуль 5. Урок 6. Проверяем данные количественными исследованиями: wannabe/M05_Research/L06_proveryaem_dannye_kolichestvennymi.md
+      - Модуль 5. Урок 7. Минимизируем ошибки в исследованиях: wannabe/M05_Research/L07_minimiziruem_oshibki.md
+      - Модуль 5. Урок 8. Строим процесс работы с исследованиями: wannabe/M05_Research/L08_stroim_protsess_raboty.md
+      - Модуль 5. Урок 9. Цели исследований: wannabe/M05_Research/L09_tseli_issledovaniy.md
+      - Модуль 5. Урок 10. Виды исследований (подсказка): wannabe/M05_Research/L10_vidy_issledovaniy_podskazka.md
+      - Модуль 5. Урок 11. Качественные исследования (типы): wannabe/M05_Research/L11_kachestvennye_issledovaniya_tipy.md
+      - Модуль 5. Урок 12. Чеклист проведения глубинного интервью: wannabe/M05_Research/L12_chekglist_glubin_intervyu.md
+      - Модуль 5. Урок 13. Гайд по AB тестам: wannabe/M05_Research/L13_gayd_ab_testam.md
+      - Модуль 5. Урок 14. Количественные исследования (типы): wannabe/M05_Research/L14_kolichestvennye_tipy.md
+      - Модуль 5. Урок 15. Чеклист проведения AB тестирования: wannabe/M05_Research/L15_chekglist_ab_testirovaniya.md
+      - Модуль 5. Урок 16. Как собрать выборку для опроса: wannabe/M05_Research/L16_kak_sobrat_vyborku.md
+      - Модуль 5. Урок 17. Формируем выборку для исследования: wannabe/M05_Research/L17_formiruem_vyborku.md
+      - Модуль 5. Урок 18. Анализ конкурентов: wannabe/M05_Research/L18_analiz_konkurentov.md
+      - Модуль 5. Урок 19. Как провести опрос: wannabe/M05_Research/L19_kak_provesti_opros.md
+      - Модуль 5. Урок 20. Особенности B2B исследований: wannabe/M05_Research/L20_osobennosti_b2b.md
+      - Модуль 5. Урок 21. Пример анкеты для исследования: wannabe/M05_Research/L21_primer_ankety.md
+    - Модуль 6. Дизайн продукта:
+      - Обзор: wannabe/M06_Product_Design/index.md
+      - Модуль 6. 01. Дизайн продукта: wannabe/M06_Product_Design/L01_dizain_produkta.md
+      - Модуль 6. 02. UX и UI: wannabe/M06_Product_Design/L02_ux_i_ui.md
+      - Модуль 6. 03. Знакомимся с продуктовым дизайнером: wannabe/M06_Product_Design/L03_produktovy_dizainer.md
+      - Модуль 6. 04. Определяем потребности и проектируем сценарии: wannabe/M06_Product_Design/L04_potrebnosti_stsenarii.md
+      - Модуль 6. 05. Создаём UX/UI и проверяем решение: wannabe/M06_Product_Design/L05_sozdaem_uxui.md
+      - Модуль 6. 06. Итеративно улучшаем дизайн: wannabe/M06_Product_Design/L06_iterativno_uluchshaem.md
+      - Модуль 6. 07. Compact UI Guide: wannabe/M06_Product_Design/L07_compact_ui_guide.md
+      - Модуль 6. 08. Compact UX Guide: wannabe/M06_Product_Design/L08_compact_ux_guide.md
+      - Модуль 6. 09. Работаем с дизайнером продукта: wannabe/M06_Product_Design/L09_rabotaem_s_dizainerom.md
+      - "Модуль 6. 10. Jobs To Be Done (подсказка)": wannabe/M06_Product_Design/L10_jobs_to_be_done.md
+      - Модуль 6. 11. User Journey Map: wannabe/M06_Product_Design/L11_user_journey_map.md
+      - Модуль 6. 12. Логика проектирования интерфейса: wannabe/M06_Product_Design/L12_logika_proektirovaniya.md
+      - Модуль 6. 13. Принципы работы с интерфейсом: wannabe/M06_Product_Design/L13_printsipy_interfeysa.md
+      - Модуль 6. 14. Оценка продуктового дизайна: wannabe/M06_Product_Design/L14_otsenka_dizaina.md
+    - Модуль 7. Разработка продукта:
+      - Обзор: wannabe/M07_Razrabotka/index.md
+      - Модуль 7. Урок 1. Разбираемся в разработке продукта: wannabe/M07_Razrabotka/L01_razbiraemsya-v-razrabotke-produkta.md
+      - Модуль 7. Урок 2. Выбор стека технологий: wannabe/M07_Razrabotka/L02_vybor-steka-tekhnologiy.md
+      - Модуль 7. Урок 3. Тестирование продукта: wannabe/M07_Razrabotka/L03_testirovanie-produkta.md
+      - Модуль 7. Урок 4. Выбор типа разработки: wannabe/M07_Razrabotka/L04_vybor-tipa-razrabotki.md
+      - Модуль 7. Урок 5. Методологии разработки: wannabe/M07_Razrabotka/L05_metodologii-razrabotki.md
+      - Модуль 7. Урок 6. Из чего состоит разработка: wannabe/M07_Razrabotka/L06_iz-chego-sostoit-razrabotka.md
+      - Модуль 7. Урок 7. Цикл продуктовой разработки: wannabe/M07_Razrabotka/L07_tsikl-produktovoy-razrabotki.md
+      - "Модуль 7. Урок 8. Frontend, Backend, API — словарь терминов": wannabe/M07_Razrabotka/L08_frontend-backend-api-slovar-terminov.md
+      - "Модуль 7. Урок 9. Технологический стек: ключевые компоненты": wannabe/M07_Razrabotka/L09_tekhnologicheskiy-stek-klyuchevye-komponenty.md
+      - Модуль 7. Урок 10. Типы продуктовой разработки: wannabe/M07_Razrabotka/L10_tipy-produktovoy-razrabotki.md
+      - Модуль 7. Урок 11. Agile манифест с примерами: wannabe/M07_Razrabotka/L11_agile-manifest-s-primerami.md
+      - Модуль 7. Урок 12. Ритуалы Scrum: wannabe/M07_Razrabotka/L12_ritualy-scrum.md
+      - Модуль 7. Урок 13. Системное тестирование гипотез: wannabe/M07_Razrabotka/L13_sistemnoe-testirovanie-gipotez.md
+    - Модуль 8. Маркетинг и привлечение пользователей:
+      - Обзор: wannabe/M08_Marketing/index.md
+      - Модуль 8. Урок 1. Привлечение пользователей: wannabe/M08_Marketing/L01_privlechenie-polzovateley.md
+      - Модуль 8. Урок 2. Рекламные каналы: wannabe/M08_Marketing/L02_reklamnye-kanaly.md
+      - Модуль 8. Урок 3. Воронка привлечения: wannabe/M08_Marketing/L03_voronka-privlecheniya.md
+      - Модуль 8. Урок 4. Активация в продукте: wannabe/M08_Marketing/L04_aktivatsiya-v-produkte.md
+      - Модуль 8. Урок 5. Выводим новый продукт на рынок: wannabe/M08_Marketing/L05_vyvodim-novyy-produkt-na-rynok.md
+      - Модуль 8. Урок 6. Эффективная работа с командой маркетинга: wannabe/M08_Marketing/L06_effektivnaya-rabota-s-komandoy-marketinga.md
+      - Модуль 8. Урок 7. Работа с маркетинговыми каналами: wannabe/M08_Marketing/L07_rabota-s-marketingovymi-kanalami.md
+      - Модуль 8. Урок 8. Компоненты маркетинговой воронки: wannabe/M08_Marketing/L08_komponenty-marketingovoy-voronki.md
+      - Модуль 8. Урок 9. Проектирование воронки привлечения: wannabe/M08_Marketing/L09_proektirovanie-voronki-privlecheniya.md
+      - Модуль 8. Урок 10. Модели атрибуции в продукте: wannabe/M08_Marketing/L10_modeli-atributsii-v-produkte.md
+      - Модуль 8. Урок 11. Принципы маркетинга и продаж: wannabe/M08_Marketing/L11_principy-marketinga-i-prodazh.md
+    - Модуль 9. Retention и Churn Rate:
+      - Обзор: wannabe/M09_Retention_i_Churn_Rate/index.md
+      - Модуль 9. Урок 1. Разбираемся в том, что такое Retention: wannabe/M09_Retention_i_Churn_Rate/L01_razbiraemsya-v-retention.md
+      - Модуль 9. Урок 2. Разбираемся в том, что такое Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L02_razbiraemsya-v-churn-rate.md
+      - Модуль 9. Урок 3. Определяем, какие есть виды Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L03_vidy-retention-i-churn-rate.md
+      - Модуль 9. Урок 4. Изучаем, какие задачи решают Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L04_zadachi-retention-i-churn-rate.md
+      - Модуль 9. Урок 5. Строим системную работу с Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L05_sistemnaya-rabota-s-retention-i-churn-rate.md
+      - Модуль 9. Урок 6. Ищем эффективные инструменты тюнинга Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L06_tyuning-retention-i-churn-rate.md
+      - Модуль 9. Урок 7. Проектируем эксперименты с Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L07_proektiruem-eksperimenty-s-retention-i-churn-rate.md
+      - Модуль 9. Урок 8. Резюмируем и выстраиваем алгоритмы работы с Retention & Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L08_rezyumiruem-algoritmy-raboty-s-retention-i-churn-rate.md
+      - Модуль 9. Урок 9. Задачи Retention и Churn Rate (памятка): wannabe/M09_Retention_i_Churn_Rate/L09_zadachi-retention-i-churn-rate-pamyatka.md
+      - Модуль 9. Урок 10. Системная работа с Retention и Churn Rate (памятка): wannabe/M09_Retention_i_Churn_Rate/L10_sistemnaya-rabota-s-retention-i-churn-rate-pamyatka.md
+      - Модуль 9. Урок 11. Способы улучшения Retention и Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L11_sposoby-uluchsheniya-retention-i-churn-rate.md
+      - Модуль 9. Урок 12. Гайд по Retention и Churn Rate: wannabe/M09_Retention_i_Churn_Rate/L12_gayd-po-retention-i-churn-rate.md
+    - Модуль 10. Soft Skills для продакт-менеджера:
+      - Обзор: wannabe/M10_Soft_Skills/index.md
+      - Модуль 10. Урок 2. Полезные soft skills: wannabe/M10_Soft_Skills/L02_soft_skills_useful.md
+      - Модуль 10. Урок 3. Soft-компетенции продакт-менеджера: wannabe/M10_Soft_Skills/L03_soft_skills_pm.md
+      - Модуль 10. Урок 4. Soft-компетенции продакт-менеджера (копия): wannabe/M10_Soft_Skills/L04_soft_skills_pm_copy.md
+      - Модуль 10. Урок 5. Гайд по разрешению конфликтов: wannabe/M10_Soft_Skills/L05_conflict_guide.md
+      - Модуль 10. Урок 6. Гайд по разрешению конфликтов (копия): wannabe/M10_Soft_Skills/L06_conflict_guide_copy.md
+    - Модуль 11. Карьера и поиск работы:
+      - Обзор: wannabe/M11_Career_Search/index.md
+      - Модуль 11. Гайд по составлению резюме: wannabe/M11_Career_Search/L01_resume_guide.md
+      - Модуль 11. Чек-лист по работе с резюме: wannabe/M11_Career_Search/L02_resume_checklist.md
+      - Модуль 11. Гайд по прохождению интервью: wannabe/M11_Career_Search/L03_interview_guide.md
+      - Модуль 11. Ресурсы для поиска работы за рубежом: wannabe/M11_Career_Search/L04_job_search_resources.md
