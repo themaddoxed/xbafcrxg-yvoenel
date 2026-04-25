@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+  .md-content {
+    margin: 0 0.4rem;
+  }
+  .md-nav__link {
+    min-height: 44px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .md-search__input {
+    width: 100%;
+  }
+  .md-typeset img {
+    max-width: 100%;
+    height: auto;
+  }
+  .md-typeset table:not([class]) {
+    display: block;
+    overflow-x: auto;
+  }
+}
